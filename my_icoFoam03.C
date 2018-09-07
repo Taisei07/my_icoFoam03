@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
         #include "CourantNo.H"
 
         // Momentum predictor
-	
+
 	//Add here
 	solve
         (
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
         );
 
 	volVectorField
-		E = fvc::grad(V); 
+		E = fvc::grad(V);
 	//...Add
 
         fvVectorMatrix UEqn
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
             fvm::ddt(U)
           + fvm::div(phi, U)
           - fvm::laplacian(nu, U)
-	  + q*E/rho//Add here
+	        + q*E/rho//Add here
         );
 
         if (piso.momentumPredictor())
